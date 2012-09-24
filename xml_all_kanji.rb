@@ -15,5 +15,5 @@ IO.read(ARGV[0]).each do |line|
   end  
 end
 
-f.write("/<dictionary>")
+f.write("</dictionary>")
 f.close
