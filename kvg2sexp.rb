@@ -235,7 +235,7 @@ class Stroke
   end
   
   def to_xml
-    "<stroke>\n" + @command_list.inject("") {|result,element| result + element.to_xml} + "</stroke>\n"
+    "      <stroke>\n" + @command_list.inject("") {|result,element| result + element.to_xml} + "      </stroke>\n"
   end
   
   def to_points
@@ -329,11 +329,15 @@ class SVG_Character
   end
   
   def to_xml
-    c = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<character><utf8>"
+    #c = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<character><utf8>"
+    c = "  <character>\n"
+    c += "    <utf8>"
     c += @character
-    c += "</utf8><strokes>"
+    c += "</utf8>\n"
+    c += "    <strokes>\n"
     c += @strokes.inject("") {|result, stroke| result + stroke.to_xml}
-    c += "</strokes></character>"
+    c += "    </strokes>\n"
+    c += "  </character>\n"
     return c  
   end
   
