@@ -342,7 +342,8 @@ class SVG_Character
   end
   
   def to_xml
-    c = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<character><utf8>"
+    #c = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<character><utf8>"
+    c = "<character><utf8>"
     c += @character
     c += "</utf8><strokes>"
     c += @strokes.inject("") {|result, stroke| result + stroke.to_xml}
