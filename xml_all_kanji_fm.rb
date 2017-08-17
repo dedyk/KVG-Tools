@@ -1,8 +1,8 @@
 require_relative "kvg2sexp.rb"
 require "nokogiri"
 
-if ENV['SOURCE']
-  file = File.open(ENV['SOURCE']) { |f| Nokogiri::XML(f) }
+#if ENV['SOURCE']
+  file = File.open(ARGV[0]) { |f| Nokogiri::XML(f) }
 
   #create directory csv
   #Dir.mkdir("xml") unless File.directory?("xml")
@@ -24,6 +24,6 @@ if ENV['SOURCE']
 
   f.write("</dictionary>")
   f.close
-else
-  puts "Usage: SOURCE=kanjivg-20130901.xml ruby xml_all_kanji.rb"
-end
+#else
+#  puts "Usage: SOURCE=kanjivg-20130901.xml ruby xml_all_kanji.rb"
+#end
